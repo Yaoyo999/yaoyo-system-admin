@@ -280,7 +280,7 @@ import { status } from "nprogress";
 const { proxy } = getCurrentInstance();
 const { blog_article_status, blog_article_category } = proxy.useDict(
   "blog_article_status",
-  "blog_article_category"
+  "blog_article_category",
 );
 
 const articleList = ref([]);
@@ -433,7 +433,7 @@ function handleExport() {
     {
       ...queryParams.value,
     },
-    `article_${new Date().getTime()}.xlsx`
+    `article_${new Date().getTime()}.xlsx`,
   );
 }
 
@@ -449,7 +449,7 @@ const onUploadImg = async (files, callback) => {
           .then((res) => rev(res))
           .catch((error) => rej(error));
       });
-    })
+    }),
   );
 
   // 回显图片地址到编辑器
